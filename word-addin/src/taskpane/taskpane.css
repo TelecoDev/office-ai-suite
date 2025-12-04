@@ -1,0 +1,186 @@
+/* =========================
+   BASE
+   ========================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Segoe UI", sans-serif;
+    background: #ffffff;
+}
+
+/* Il main deve occupare tutta l'altezza del taskpane */
+#app-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Messaggio di sideload */
+.ms-welcome__main {
+    padding: 16px;
+    text-align: center;
+}
+
+/* =========================
+   OVERLAY CARICAMENTO
+   ========================= */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(120, 120, 120, 0.4);
+    display: none;
+    z-index: 9999;
+}
+
+#loading-overlay .message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* =========================
+   HEXABOT CONTAINER
+   ========================= */
+#hexabot-container {
+    /* prende tutto lo spazio rimanente sotto l'header e il testo */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background: #fafafa;
+    margin-top: 12px;
+    box-sizing: border-box;
+    min-height: 200px;
+}
+
+/* HEADER DEL BOT */
+#hexabot-header {
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f0f0f0;
+    border-bottom: 1px solid #dddddd;
+    font-size: 13px;
+    font-weight: 600;
+    color: #444444;
+}
+
+.hexabot-logo {
+    font-size: 16px;
+}
+
+/* =========================
+   AREA MESSAGGI
+   ========================= */
+#hexabot-messages {
+    flex: 1;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+/* Bubble utente */
+.hexabot-user {
+    align-self: flex-end;
+    background: #dbeafe;      /* azzurrino */
+    padding: 6px 8px;
+    border-radius: 10px 10px 0 10px;
+    max-width: 80%;
+}
+
+/* Bubble AI */
+.hexabot-ai {
+    align-self: flex-start;
+    background: #e5e5e5;      /* grigio chiaro */
+    padding: 6px 8px;
+    border-radius: 10px 10px 10px 0;
+    max-width: 80%;
+}
+
+/* =========================
+   INPUT CHAT
+   ========================= */
+#hexabot-input {
+    display: flex;
+    border-top: 1px solid #dddddd;
+    padding: 4px;
+    box-sizing: border-box;
+    background: #f5f5f5;
+}
+
+#hexabot-text {
+    flex: 1;
+    resize: none;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 4px 6px;
+    font-size: 12px;
+    height: 40px;
+    box-sizing: border-box;
+    outline: none;
+    background: #ffffff;
+}
+
+#hexabot-send {
+    margin-left: 4px;
+    width: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background: #2563eb;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+#hexabot-send:hover {
+    background: #1d4ed8;
+}
+
+/* Indicatore "sta scrivendo..." */
+.typing-dots::after {
+    content: "...";
+    animation: dots 1s infinite;
+}
+
+@keyframes dots {
+    0% { content: "."; }
+    33% { content: ".."; }
+    66% { content: "..."; }
+}
+
+#hexabot-header {
+    background: linear-gradient(135deg, #7a57ff, #5562ff);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+#hexabot-logo-img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    filter: drop-shadow(0px 0px 4px rgba(255,255,255,0.4));
+}

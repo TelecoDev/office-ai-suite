@@ -1,0 +1,18 @@
+# Node modules
+node_modules/
+
+# Office Add-in build output
+dist/
+build/
+
+# Python (in caso di script)
+__pycache__/
+*.pyc
+
+# Environment
+.env
+.env.local
+
+# System
+.DS_Store
+Thumbs.db

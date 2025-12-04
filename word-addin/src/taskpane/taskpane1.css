@@ -1,0 +1,215 @@
+/* 
+ * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
+ * See LICENSE in the project root for license information.
+ */
+
+ html,
+ body {
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+ }
+ 
+ ul {
+     margin: 0;
+     padding: 0;
+ }
+ 
+ .ms-welcome__header {
+    padding: 20px;
+    padding-bottom: 30px;
+    padding-top: 100px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .ms-welcome__main {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex: 1 0 0;
+    flex: 1 0 0;
+    padding: 10px 20px;
+ }
+ 
+ .ms-welcome__main > h2 {
+     width: 100%;
+     text-align: center;
+ }
+ 
+ .ms-welcome__features {
+     list-style-type: none;
+     margin-top: 20px;
+ }
+ 
+ .ms-welcome__features.ms-List .ms-ListItem {
+     padding-bottom: 20px;
+     display: -webkit-flex;
+     display: flex;
+ }
+ 
+ .ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
+     margin-right: 10px;
+ }
+ 
+ .ms-welcome__action.ms-Button--hero {
+     margin-top: 30px;
+ }
+ 
+.ms-Button.ms-Button--hero .ms-Button-label {
+  color: #0078d7;
+}
+
+.ms-Button.ms-Button--hero:hover .ms-Button-label,
+.ms-Button.ms-Button--hero:focus .ms-Button-label{
+  color: #005a9e;
+  cursor: pointer;
+}
+
+b {
+    font-weight: bold;
+}
+
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(120, 120, 120, 0.5);
+  display: none;
+  backdrop-filter: blur(2px);
+  z-index: 9999;
+}
+
+#loading-overlay .message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+/* ------------------------------ */
+/*       HEXABOT – CONTAINER     */
+/* ------------------------------ */
+#hexabot-container {
+  width: 100%;
+  height: 380px;
+  margin-top: 25px;
+  border-radius: 14px;
+  background: #f9f9ff;
+  border: 1px solid #e1e1ff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0px 4px 14px rgba(138, 82, 255, 0.15);
+}
+
+/* HEADER */
+#hexabot-header {
+  background: linear-gradient(135deg, #7a57ff, #5562ff);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.hexabot-logo {
+  font-size: 20px;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));
+}
+
+/* AREA MESSAGGI */
+#hexabot-messages {
+  flex: 1;
+  padding: 14px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* MESSAGGI UTENTE */
+.hexabot-user {
+  align-self: flex-end;
+  background: #d6ceff;
+  padding: 8px 12px;
+  border-radius: 10px 10px 0 10px;
+  max-width: 75%;
+  font-size: 13px;
+  animation: hexabotFade 0.3s ease;
+}
+
+/* MESSAGGI AI */
+.hexabot-ai {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #7e5aff, #5f6cff);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px 10px 10px 0;
+  max-width: 75%;
+  font-size: 13px;
+  box-shadow: 0px 0px 8px rgba(123, 75, 255, 0.4);
+  animation: hexabotFade 0.3s ease;
+}
+
+/* ANIMAZIONE */
+@keyframes hexabotFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* INPUT */
+#hexabot-input {
+  display: flex;
+  border-top: 1px solid #e5e5ff;
+  background: #fafaff;
+}
+
+#hexabot-text {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  resize: none;
+  height: 45px;
+  font-size: 13px;
+  outline: none;
+  background: transparent;
+}
+
+#hexabot-send {
+  width: 50px;
+  border: none;
+  background: linear-gradient(135deg, #7a57ff, #5562ff);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.typing-dots {
+  display: inline-block;
+  width: 20px;
+  animation: dots 1s infinite;
+}
+
+@keyframes dots {
+  0% { content: "."; }
+  33% { content: ".."; }
+  66% { content: "..."; }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>OfficeAI – Word Assistant</title>
+
+    <!-- Office JS -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+    <!-- Fluent Core -->
+    <link rel="stylesheet" href="https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/
+    office-ui-fabric-core/11.1.0/css/fabric.min.css" />
+
+    <link href="taskpane.css" rel="stylesheet" />
+
+</head>
+
+<body class="ms-Fabric">
+
+    <!-- Messaggio sideload -->
+    <section id="sideload-msg" class="ms-welcome__main">
+        <h2 class="ms-font-xl">
+            Per favore <a target="_blank" href="https://learn.microsoft.com/office/dev/add-ins/testing/test-debug-office-add-ins#sideload-an-office-add-in-for-testing">
+                sideloada l'add-in
+            </a> per visualizzare l'interfaccia.
+        </h2>
+    </section>
+
+    <!-- Corpo dell'app -->
+    <main id="app-body" style="display:none; padding: 15px;">
+
+        <!-- HEADER -->
+        <header style="
+            text-align: center;
+            padding: 15px 0;
+            font-size: 22px;
+            font-weight: 600;
+            color: #444;">
+            OfficeAI – Assistente Word
+        </header>
+
+        <!-- DESCRIZIONE BREVE -->
+        <p style="font-size: 13px; color: #666; text-align: center; margin-top: -5px;">
+            Seleziona un testo nel documento e scrivi nella chat cosa vuoi che l'AI faccia.
+        </p>
+
+        <!-- CHATBOT -->
+        <div id="hexabot-container">
+
+            <div id="hexabot-header">
+                <img src="../../assets/ChatGPT Image 27 nov 2025, 12_03_05.png" id="hexabot-logo-img" />
+                <span>WordBot</span>
+            </div>
+
+            <div id="hexabot-messages"></div>
+
+            <div id="hexabot-input">
+                <textarea id="hexabot-text" placeholder="Scrivi un messaggio..."></textarea>
+                <button id="hexabot-send">➤</button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- LOADING OVERLAY -->
+    <div id="loading-overlay">
+        <div class="message">Sto generando…</div>
+    </div>
+
+    <!-- SCRIPT PRINCIPALE -->
+    <script src="taskpane.js"></script>
+
+</body>
+</html>
