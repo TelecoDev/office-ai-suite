@@ -28,7 +28,7 @@ Office.onReady((info) => {
 // OLLAMA CALLER
 // --------------------------------------------------
 async function callOllama(prompt) {
-  const res = await fetch("http://172.30.5.220:11434/api/generate", {
+  const res = await fetch("http://localhost:11434/api/generate", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ model: "llama3", prompt, stream: false })
