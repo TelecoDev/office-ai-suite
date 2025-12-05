@@ -81,17 +81,19 @@ module.exports = async (env, options) => {
         chunks: ["polyfill", "commands"],
       }),
     ],
-  devServer: {
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-  },
-  server: {
-    type: "https",
-    options: await getHttpsOptions(),
-  },
-  host: "0.0.0.0",
-  port: process.env.npm_package_config_dev_server_port || 3000,
-},
+
+    // 👇👇 QUI DENTRO, NON FUORI 👇👇
+    devServer: {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+      server: {
+        type: "https",
+        options: await getHttpsOptions(),
+      },
+      host: "0.0.0.0",
+      port: process.env.npm_package_config_dev_server_port || 3000,
+    },
   };
 
   return config;
