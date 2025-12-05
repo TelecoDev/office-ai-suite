@@ -44,8 +44,6 @@ La suite utilizza **Ollama** come motore AI interno, garantendo:
 
 # 🧱 Architettura Tecnica
 
-java
-Copia codice
         ┌──────────────────────────────┐
         │          OfficeAI Suite      │
         │  Word | Excel | Outlook Add-ins  │
@@ -65,8 +63,6 @@ Copia codice
                        │
                        ▼
           Nessun dato lascia il sistema
-yaml
-Copia codice
 
 ---
 
@@ -77,9 +73,6 @@ office-ai-suite/
 ├── word-addin/ # Add-in Word (React + Office JS)
 ├── excel-addin/ # Add-in Excel (React + Office JS)
 └── outlook-addin/ # Add-in Outlook (React + Office JS)
-
-yaml
-Copia codice
 
 Ogni add-in è indipendente e contiene:
 - `manifest.xml`
@@ -103,28 +96,28 @@ Ogni add-in è indipendente e contiene:
 # ⚙️ Setup ambiente sviluppo
 
 ### 1️⃣ Clona la repository
-```bash
+
 git clone https://github.com/TelecoDev/office-ai-suite.git
 cd office-ai-suite
 2️⃣ Installa le dipendenze per ogni add-in
 Word
-bash
-Copia codice
+
 cd word-addin
 npm install
 npm start
+
 Excel
-bash
-Copia codice
+
 cd excel-addin
 npm install
 npm start
+
 Outlook
-bash
-Copia codice
+
 cd outlook-addin
 npm install
 npm start
+
 🔒 Privacy & Sicurezza
 OfficeAI Suite è pensata per ambienti aziendali:
 
@@ -147,9 +140,5 @@ Perfect-fit per contesti ISO 27001
 
  Setup automatico tramite installer
 
-👨‍💻 Autore
-TelecoDev
-Soluzioni AI locali per produttività aziendale.
-
 🔐 Licenza
-Repository privata. Uso riservato ai soli enti autorizzati.
+Repository privata.
