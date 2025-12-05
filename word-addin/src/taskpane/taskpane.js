@@ -28,15 +28,22 @@ Office.onReady((info) => {
 // OLLAMA CALLER
 // --------------------------------------------------
 async function callOllama(prompt) {
-  const res = await fetch("http://localhost:11434/api/generate", {
+  const response = await fetch("/api/ollama/api/generate", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ model: "llama3", prompt, stream: false })
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      model: "llama3:latest",
+      prompt: prompt,
+      stream: false
+    })
   });
-
-  const data = await res.json();
-  return data.response.trim();
+  
+  const data = await response.json();
+  return data.response;
 }
+
 
 // --------------------------------------------------
 // INTENT DETECTOR (amichevole ma preciso)

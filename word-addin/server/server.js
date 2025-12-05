@@ -1,16 +1,48 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
+const https = require("https");
+const { createProxyMiddleware } = require("http-proxy-middleware");
+
 const app = express();
 
-const PORT = 3000;
+// 🔐 Percorso ai certificati dev di Office
+const certPath = path.join(
+  process.env.HOME || process.env.USERPROFILE,
+  ".office-addin-dev-certs",
+  "localhost.crt"
+);
+const keyPath = path.join(
+  process.env.HOME || process.env.USERPROFILE,
+  ".office-addin-dev-certs",
+  "localhost.key"
+);
 
-// Serve i file della build
-app.use(express.static(path.join(__dirname, "../dist")));
+const options = {
+  cert: fs.readFileSync(certPath),
+  key: fs.readFileSync(keyPath),
+};
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist/taskpane.html"));
-});
+// 🌐 Percorso ai file buildati
+const distPath = path.join(__dirname, "..", "dist");
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`OfficeAI Server LIVE → http://172.30.5.220:${PORT}`);
+// Serve la build
+app.use(express.static(distPath));
+
+// 🔥 PROXY HTTPS → HTTP per Ollama
+app.use(
+  "/api/ollama",
+  createProxyMiddleware({
+    target: "http://172.30.5.220:11434", // PC A OLLAMA
+    changeOrigin: true,
+    secure: false,
+    pathRewrite: {
+      "^/api/ollama": "",
+    },
+  })
+);
+
+// Avvia server
+https.createServer(options, app).listen(3000, () => {
+  console.log("OfficeAI SERVE → https://172.30.5.220:3000");
 });
