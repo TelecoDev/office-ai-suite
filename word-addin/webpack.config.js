@@ -82,7 +82,6 @@ module.exports = async (env, options) => {
       }),
     ],
 
-    // 👇👇 QUI DENTRO, NON FUORI 👇👇
     devServer: {
       headers: {
         "Access-Control-Allow-Origin": "*",
